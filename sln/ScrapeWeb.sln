@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWeb", "..\src\ScrapeWeb\ScrapeWeb.csproj", "{18D2ACE5-1EE3-447C-949D-D5BC06B8A404}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWeb.Test", "..\src\ScrapeWeb.Test\ScrapeWeb.Test.csproj", "{DD0B7BD7-FCF8-4089-909D-3697BE718582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{18D2ACE5-1EE3-447C-949D-D5BC06B8A404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18D2ACE5-1EE3-447C-949D-D5BC06B8A404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18D2ACE5-1EE3-447C-949D-D5BC06B8A404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

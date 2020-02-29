@@ -15,10 +15,14 @@ namespace ScrapeWeb.Models
         /// </summary>
         public string Url;
         /// <summary>
+        /// Get or Set the HttpWebRequest method used. Default is GET
+        /// </summary>
+        public string WebRequestMethod;
+        /// <summary>
         /// Get or Set the value indicating if the <see cref="SearchingElement"/> has to be selected based on a set of <see cref="Keywords"/>.
         /// If false, the <see cref="SearchingElement"/> will be selected entirely. Default is false;
         /// </summary>
-        public bool UseKeywords;
+        public bool UseKeywords;    
         /// <summary>
         /// Get or Set the value indicating if the page has to be retrieving using the compression/decompression for reading the content. Default is false.
         /// </summary>
@@ -82,10 +86,11 @@ namespace ScrapeWeb.Models
         {
             this.SingleDescendantElementsToFind = new string[] { };
             this.MultipleDescendantElementsToFind = new string[] { };
-
+            this.WebRequestMethod = "GET";
             UseCompression = false;
             UseHeaders = false;
             UseKeywords = false;
+            Keywords = new string[] { };
 
         }
     }

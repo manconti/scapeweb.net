@@ -16,14 +16,6 @@ namespace ScrapeWeb.Models
         /// </summary>
         public bool GenerateCsv;
         /// <summary>
-        /// Get or Set the value indicating if ScrapeWeb will attach the CSV to the email sent. This parameter is ignored if <see cref="SendEmail"/> is False.
-        /// </summary>
-        public bool SendCsv;
-        /// <summary>
-        /// Get or Set the value indicating which email template ScrapeWeb will use. 
-        /// </summary>
-        public string Template;
-        /// <summary>
         /// Get or Set the <see cref="EmailConfiguration"/>.
         /// </summary>
         public EmailConfiguration EmailConfiguration;

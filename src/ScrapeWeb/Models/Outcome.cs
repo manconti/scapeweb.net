@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ScrapeWeb.Models
 {
@@ -22,6 +23,15 @@ namespace ScrapeWeb.Models
         {
             get;
             internal set;
+        }
+        /// <summary>
+        /// Get the value identifying if the searched keywords have been found; If the configuration does not select keywords the value is ignored.
+        /// </summary>
+        public bool KeyWordsFound
+        {
+            get {
+                return this.HighlightedOutputElements.Any();
+            }
         }
         /// <summary>
         /// Get the collection of elements extracted by ScrapeWeb. This collection contains highlighted HTML elements and is used by ScrapeWeb for sending the email.
