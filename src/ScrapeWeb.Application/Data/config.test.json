@@ -1,0 +1,22 @@
+{
+  "SendEmail": true,
+  "GenerateCsv": true,
+  "EmailConfiguration": {
+    "Attachments": [],
+    "UseSendGrid": true,
+    "ApiKey": "the API key",
+    "Login": "yourusername@azure.com",
+    "Password": "*****",
+    "SmtpServer": "",
+    "Template": {
+      "BodyTemplate": "Replace with HTML body",
+      "ItemTemplate": "Replace with ITEM body",
+      "RowTemplate": "Replace with ROW body"
+    }
+  },
+  "EmailMessage": {
+    "From": "sender@email.com",
+    "Subject": "subject of the email",
+    "Recipients": [ "recipient@email.com" ]
+  }
+}

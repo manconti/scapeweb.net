@@ -1,0 +1,208 @@
+﻿[
+  {
+    "Url": "https://www.marchesonline.com/appels-offres/lieu/auvergne-rhone-alpes-R82/haute-savoie-D75",
+    "Title": "Marchés online",
+    "SearchingElement": "//a[contains(@class, 'blockContentResults')]",
+    "SingleDescendantElementsToFind": [ ".//h2[contains(@class, 'Title ')]", ".//p[contains(@class, 'clientName')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords" :  true
+  },
+  {
+    "Url": "https://www.marchesonline.com/appels-offres/lieu/auvergne-rhone-alpes-R82/haute-savoie-D75&page=2",
+    "Title": "Marchés online",
+    "SearchingElement": "//a[contains(@class, 'blockContentResults')]",
+    "SingleDescendantElementsToFind": [ ".//h2[contains(@class, 'Title ')]", ".//p[contains(@class, 'clientName')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://www.marchesonline.com/appels-offres/lieu/auvergne-rhone-alpes-R82/haute-savoie-D75&page=3",
+    "Title": "Marchés online",
+    "SearchingElement": "//a[contains(@class, 'blockContentResults')]",
+    "SingleDescendantElementsToFind": [ ".//h2[contains(@class, 'Title ')]", ".//p[contains(@class, 'clientName')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://www.marchesonline.com/appels-offres/lieu/auvergne-rhone-alpes-R82/haute-savoie-D75&page=4",
+    "Title": "Marchés online",
+    "SearchingElement": "//a[contains(@class, 'blockContentResults')]",
+    "SingleDescendantElementsToFind": [ ".//h2[contains(@class, 'Title ')]", ".//p[contains(@class, 'clientName')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+
+  {
+    "Url": "https://www.francemarches.com/appels-offre/haute-savoie?1=1",
+    "Title": "France Marchés",
+    "UseCompression": true,
+    "UseHeaders": true,
+    "Cookie": "datadome=9PvmzhFIkUd2LKWoWGTf7NnK.e1rzcR6HmZCsLbdYvVfownZPEzc-cyuqI6X90-6h~hz.P8fe2jPrPVJ8fKwK~zTIrDapCRM_F-SZO4TJS; atuserid=%7B%22name%22%3A%22atuserid%22%2C%22val%22%3A%22e74976d9-927f-4934-ac47-344ce01082e7%22%2C%22options%22%3A%7B%22end%22%3A%222021-03-01T09%3A20%3A13.512Z%22%2C%22path%22%3A%22%2F%22%7D%7D; atidvisitor=%7B%22name%22%3A%22atidvisitor%22%2C%22val%22%3A%7B%22vrn%22%3A%22-501001-%22%7D%2C%22options%22%3A%7B%22path%22%3A%22%2F%22%2C%22session%22%3A15724800%2C%22end%22%3A15724800%7D%7D; _ga=GA1.2.979024223.1580289614; didomi_token=eyJ1c2VyX2lkIjoiMTZmZjA5OWQtYmFkMy02NTZjLWJmZmItYmEyZWMxMzc3Y2EzIiwiY3JlYXRlZCI6IjIwMjAtMDEtMjlUMDk6MjA6MTMuNzQzWiIsInVwZGF0ZWQiOiIyMDIwLTAxLTI5VDA5OjIwOjE1LjcxMloiLCJ2ZW5kb3JzIjp7ImVuYWJsZWQiOlsiZ29vZ2xlIl0sImRpc2FibGVkIjpbXX0sInB1cnBvc2VzIjp7ImVuYWJsZWQiOlsiY29va2llcyIsImFkdmVydGlzaW5nX3BlcnNvbmFsaXphdGlvbiIsImNvbnRlbnRfcGVyc29uYWxpemF0aW9uIiwiYWRfZGVsaXZlcnkiLCJhbmFseXRpY3MiXSwiZGlzYWJsZWQiOltdfX0=; euconsent=BOt7Q8JOt7Q8dAHABBENCv-AAAAsuABAI4A; FRANCEMARCHES=90vk2245mbbu8s940mrtmb2jo0; _gid=GA1.2.1591240251.1580630831; _gat_UA-3779573-2=1; _gat_UA-3779573-4=1; _gat_UA-3779573-1=1",
+    "UserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "AcceptLanguage": "en-US,en;q=0.5",
+    "CacheControl": "max-age=0",
+    "Host": "www.francemarches.com",
+    "AcceptEncoding": "gzip, deflate, br",
+    "SearchingElement": "//div[contains(@class, 'cadreBlanc shadow blockIsLink')]",
+    "SingleDescendantElementsToFind": [ ".//a[contains(@class, 'link')]", ".//li[contains(@class, 'client')]", ".//li[contains(@class, 'dateParution')]/strong/time " ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://centraledesmarches.com/marches-publics/liste-avancee?nb=50&rem_date_to_date%5Bfrom%5D=2020-01-01&sort=date_publication+desc&rem_type=avancee&departement=haute-savoie&page=1&e%5Bdept%5D=74",
+    "Title": "Centrale des marchés",
+    "SearchingElement": "//section[contains(@class, 'resultat')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'entete')]/h2", ".//div[contains(@class, 'maitreouvrage')]/div" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://centraledesmarches.com/marches-publics/liste-avancee?nb=50&rem_date_to_date%5Bfrom%5D=2020-01-01&sort=date_publication+desc&rem_type=avancee&departement=haute-savoie&page=1&e%5Bdept%5D=74&page=2",
+    "Title": "Centrale des marchés",
+    "SearchingElement": "//section[contains(@class, 'resultat')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'entete')]/h2", ".//div[contains(@class, 'maitreouvrage')]/div" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://centraledesmarches.com/marches-publics/liste-avancee?nb=50&rem_date_to_date%5Bfrom%5D=2020-01-01&sort=date_publication+desc&rem_type=avancee&departement=haute-savoie&page=1&e%5Bdept%5D=74&page=3",
+    "Title": "Centrale des marchés",
+    "SearchingElement": "//section[contains(@class, 'resultat')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'entete')]/h2", ".//div[contains(@class, 'maitreouvrage')]/div" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://centraledesmarches.com/marches-publics/liste-avancee?nb=50&rem_date_to_date%5Bfrom%5D=2020-01-01&sort=date_publication+desc&rem_type=avancee&departement=haute-savoie&page=1&e%5Bdept%5D=74&page=4",
+    "Title": "Centrale des marchés",
+    "SearchingElement": "//section[contains(@class, 'resultat')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'entete')]/h2", ".//div[contains(@class, 'maitreouvrage')]/div" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://centraledesmarches.com/marches-publics/liste-avancee?nb=50&rem_date_to_date%5Bfrom%5D=2020-01-01&sort=date_publication+desc&rem_type=avancee&departement=haute-savoie&page=1&e%5Bdept%5D=74&page=5",
+    "Title": "Centrale des marchés",
+    "SearchingElement": "//section[contains(@class, 'resultat')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'entete')]/h2", ".//div[contains(@class, 'maitreouvrage')]/div" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://marches-publics.lesechos.fr/appel-d-offre/haute-savoie-74",
+    "Title": "Marchés publics Les Echos",
+    "SearchingElement": "//div[contains(@class, 'orga')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'ficheAvisZoneMilieu')]", ".//div[contains(@class, 'ficheAvisZoneHaute')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://marches-publics.lesechos.fr/appel-d-offre/haute-savoie-74?page=2",
+    "Title": "Marchés publics Les Echos",
+    "SearchingElement": "//div[contains(@class, 'orga')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'ficheAvisZoneMilieu')]", ".//div[contains(@class, 'ficheAvisZoneHaute')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://marches-publics.lesechos.fr/appel-d-offre/haute-savoie-74?page=3",
+    "Title": "Marchés publics Les Echos",
+    "SearchingElement": "//div[contains(@class, 'orga')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'ficheAvisZoneMilieu')]", ".//div[contains(@class, 'ficheAvisZoneHaute')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  },
+  {
+    "Url": "https://marches-publics.lesechos.fr/appel-d-offre/haute-savoie-74?page=4",
+    "Title": "Marchés publics Les Echos",
+    "SearchingElement": "//div[contains(@class, 'orga')]",
+    "SingleDescendantElementsToFind": [ ".//div[contains(@class, 'ficheAvisZoneMilieu')]", ".//div[contains(@class, 'ficheAvisZoneHaute')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  }
+ ,
+  {
+    "Url": "http://www.mp74.fr/avis/index.cfm?fuseaction=pub.affResultats",
+    "Title": "MP74",
+    "SearchingElement": "//table[contains(@class, 'AW_Table')]/tr",
+    "MultipleDescendantElementsToFind": [ ".//td[contains(@class, 'AW_Table_Ligne0')]", ".//td[contains(@class, 'AW_Table_Ligne1')]" ],
+    "Keywords": [
+      "autoroute",
+      "route",
+      "thonon",
+      "machilly"
+    ],
+    "UseKeyWords": true
+  }
+]

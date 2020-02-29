@@ -10,7 +10,7 @@ using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
 namespace ScrapeWeb.Services
 {
-    public class EmailService
+    public sealed class EmailService
     {
         private SystemConfiguration _config;
 
@@ -19,7 +19,7 @@ namespace ScrapeWeb.Services
             _config = configuration;
         }
 
-        public async Task SendAsync(List<Outcome> results)
+        public async Task SendAsync(IList<Outcome> results)
         {
 
             _config.EmailConfiguration.Template.BodyTemplate = _config.EmailConfiguration.Template.BodyTemplate
@@ -38,8 +38,6 @@ namespace ScrapeWeb.Services
                 //attachments
                 if (_config.EmailConfiguration.Attachments.Any())
                 {
-
-
                     foreach (var attachment in _config.EmailConfiguration.Attachments)
                     {
                         attachments.Add(new SendGrid.Helpers.Mail.Attachment() { Filename = attachment.Name, Content = attachment.Base64String });
@@ -57,7 +55,7 @@ namespace ScrapeWeb.Services
                     var response = await client.SendEmailAsync(msg);
                     if (response.StatusCode == HttpStatusCode.InternalServerError)
                     {
-                        throw new Exception(Constants.ExEmailSendingError.Replace("§§",response.Body.ReadAsStringAsync().Result));
+                        throw new Exception(Constants.ExEmailSendingError.Replace("§§", response.Body.ReadAsStringAsync().Result));
                     }
                 }
             }
@@ -68,7 +66,7 @@ namespace ScrapeWeb.Services
         }
 
 
-        private string BuildBody(List<Outcome> results)
+        private string BuildBody(IList<Outcome> results)
         {
             var sitems = string.Empty;
             foreach (var gr in results)

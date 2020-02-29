@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWeb", "..\src\ScrapeW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWeb.Test", "..\src\ScrapeWeb.Test\ScrapeWeb.Test.csproj", "{DD0B7BD7-FCF8-4089-909D-3697BE718582}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWeb.Application", "..\src\ScrapeWeb.Application\ScrapeWeb.Application.csproj", "{14AF8E83-3DD5-495E-9208-E0141721B24D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0B7BD7-FCF8-4089-909D-3697BE718582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14AF8E83-3DD5-495E-9208-E0141721B24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AF8E83-3DD5-495E-9208-E0141721B24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AF8E83-3DD5-495E-9208-E0141721B24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AF8E83-3DD5-495E-9208-E0141721B24D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

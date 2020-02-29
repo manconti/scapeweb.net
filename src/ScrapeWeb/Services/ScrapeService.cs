@@ -9,7 +9,7 @@ using ScrapeWeb.Models;
 
 namespace ScrapeWeb.Services
 {
-    public class ScrapeService
+    public sealed class ScrapeService
     {
 
         public async Task<IList<Outcome>> ExecuteAsync(IList<Target> sources)
