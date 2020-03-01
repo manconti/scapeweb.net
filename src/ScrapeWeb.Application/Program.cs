@@ -11,6 +11,8 @@ namespace ScrapeWeb.App
 {
     class Program
     {
+        static ScrapeService scrapeWeb;
+
         static async Task Main(string[] args)
         {
             var data = JsonConvert.DeserializeObject<List<Target>>(File.ReadAllText(@"Data/data.json"));
@@ -40,14 +42,15 @@ namespace ScrapeWeb.App
 
         static async Task MainAsync(List<Target> data, SystemConfiguration configuration)
         {
-            ScrapeService scrapeWeb = new ScrapeService();
+            scrapeWeb = new ScrapeService();
+            scrapeWeb.LogEvent += ScrapeWeb_LogEvent;
             var outcomes = await scrapeWeb.ExecuteAsync(data);
 
-            var filtered = outcomes.Where(x => x.KeyWordsFound == true).GroupBy(y => y.Title);
+            var filtered = outcomes.Where(x => x.KeywordsFound == true).GroupBy(y => y.Title);
 
             foreach (var value in filtered)
             {
-                Console.WriteLine($"{value.Key} - {value.Count()}");
+                Log(ConsoleColor.DarkGreen, $"{value.Key} - {value.Count()}");
             }
 
             if (configuration.GenerateCsv)
@@ -66,7 +69,6 @@ namespace ScrapeWeb.App
 
             if (configuration.SendEmail)
             {
-
                 //adding the CSV to the email
                 if (configuration.GenerateCsv)
                 {
@@ -80,5 +82,46 @@ namespace ScrapeWeb.App
             }
 
         }
+
+        private static void ScrapeWeb_LogEvent()
+        {
+            var logItem = scrapeWeb.Logs[0]; //always the latest one;
+            switch (logItem.Type)
+            {
+                case LogType.Info:
+                    Log(ConsoleColor.Gray, logItem);
+                    break;
+                case LogType.Message:
+                    Log(ConsoleColor.DarkCyan, logItem);
+                    break;
+                case LogType.Error:
+                    Log(ConsoleColor.Red, logItem);
+                    break;
+                case LogType.Warning:
+                    Log(ConsoleColor.Yellow, logItem);
+                    break;
+                case LogType.Success:
+                    Log(ConsoleColor.Green, logItem);
+                    break;
+            }
+        }
+
+
+        private static void Log(ConsoleColor color, LogItem message)
+        {
+            var currentColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine($"{message.DateTime} - {message.Message}");
+            Console.ForegroundColor = currentColor;
+        }
+
+        private static void Log(ConsoleColor color, string message)
+        {
+            var currentColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ForegroundColor = currentColor;
+        }
+
     }
 }

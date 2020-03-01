@@ -11,6 +11,17 @@ namespace ScrapeWeb.Services
 {
     public sealed class ScrapeService
     {
+        public List<LogItem> Logs { get; private set; }
+
+        public delegate void Log();
+
+        public event Log LogEvent;
+
+        public ScrapeService()
+        {
+            this.Logs = new List<LogItem>();
+            InternalLog(LogType.Info, "ScrapeService initiated");
+        }
 
         public async Task<IList<Outcome>> ExecuteAsync(IList<Target> sources)
         {
@@ -18,6 +29,7 @@ namespace ScrapeWeb.Services
 
             foreach (var source in sources)
             {
+                InternalLog(LogType.Message, $"Starting scraping {source.Url}");
                 var doc = new HtmlDocument();
 
                 var pageSource = await DownloadPageAsync(source);
@@ -25,6 +37,7 @@ namespace ScrapeWeb.Services
                 {
 
                     doc.LoadHtml(pageSource);
+                    InternalLog(LogType.Message, $"Page downloaded ({source.Title})");
 
                     var nodes = doc.DocumentNode.SelectNodes(source.SearchingElement);
                     if (nodes != null)
@@ -32,7 +45,6 @@ namespace ScrapeWeb.Services
                         foreach (var node in nodes) //we now have the big block
                         {
                             bool wordsFound = false;
-
 
                             Outcome result = new Outcome()
                             {
@@ -43,6 +55,7 @@ namespace ScrapeWeb.Services
                             //searching the text in the big block, regardless, unless keywords are not required
                             if (!source.UseKeywords) //NOTE > double negation. Logically inverted
                             {
+                                InternalLog(LogType.Info, $"No keywords to be found");
                                 wordsFound = true;
                             }
                             else
@@ -100,7 +113,6 @@ namespace ScrapeWeb.Services
                                     }
                                 }
                             }
-
                             results.Add(result);
 
                         }
@@ -110,14 +122,14 @@ namespace ScrapeWeb.Services
 
                     else
                     {
-                        //Log("Errors, no elements found", ConsoleColor.Red);
+                        InternalLog(LogType.Warning, "No elements found");
                     }
                 }
             }
 
+            InternalLog(LogType.Success, $"Scraping completed for {results.Count} elements");
             return results;
         }
-
 
         public string RemoveLineEndings(string value)
         {
@@ -158,10 +170,10 @@ namespace ScrapeWeb.Services
             req.Timeout = Constants.WebRequestMillisecondTimeout;
             req.Method = source.WebRequestMethod;
             req.AuthenticationLevel = System.Net.Security.AuthenticationLevel.None; //TODO authentication to be implemented
-
+            InternalLog(LogType.Info, $"Downloading {source.Url}");
             if (source.UseHeaders)
             {
-
+                InternalLog(LogType.Info, $"Using Headers for {source.Url}");
                 if (!String.IsNullOrWhiteSpace(source.Cookie))
                 {
                     CookieContainer cookieContainer = new CookieContainer();
@@ -178,7 +190,7 @@ namespace ScrapeWeb.Services
 
             if (source.UseCompression)
             {
-
+                InternalLog(LogType.Info, $"Using Compression for {source.Url}");
                 req.Headers[HttpRequestHeader.AcceptEncoding] = Constants.WebRequestCompressionEncoding;
                 req.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
             }
@@ -196,13 +208,27 @@ namespace ScrapeWeb.Services
             }
             catch (Exception e)
             {
-                //Log($"Error {e.Message}", ConsoleColor.DarkRed);
-                //Log(e.StackTrace, ConsoleColor.Red);
+                InternalLog(LogType.Error, $"Error {e.Message}");
+                InternalLog(LogType.Error, e.StackTrace);
                 return String.Empty;
             }
 
 
 
+        }
+
+
+        private void InternalLog(LogType type, string message)
+        {
+            Logs.Insert(0, new LogItem()
+            {
+                Message = message,
+                Type = type,
+                DateTime = DateTime.UtcNow
+            });
+
+            if (LogEvent != null)
+                LogEvent();
         }
     }
 }

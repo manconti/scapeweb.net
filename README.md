@@ -34,7 +34,7 @@ A System Configuration is composed by:
 - SendEmail: in the ScrapeWeb.Application it will be used for sending or not the email. 
 - GenerateCsv: in the ScrapeWeb.Application it will be used for generating the CSV file. 
 - EmailConfiguration: a class that allows either to use SendGrid API or to use standard SMTP sending. It containss 
-- EmailMessage: It contains the main fields for the email message (Sender, Recipiens, Subject) as well a the email template (see below) and the list of attachments. 
+- EmailMessage: It contains the main fields for the email message (Sender, Recipiens, Subject) as well a the email template (see <a href="#the-email-template">below</a>) and the list of attachments. 
 
 ### Outcome
 Scrapeweb will generate a list of Outcome as result of the scraping activity. An Outcome is composed by:

@@ -27,7 +27,7 @@ namespace ScrapeWeb.Models
         /// <summary>
         /// Get the value identifying if the searched keywords have been found; If the configuration does not select keywords the value is ignored.
         /// </summary>
-        public bool KeyWordsFound
+        public bool KeywordsFound
         {
             get {
                 return this.HighlightedOutputElements.Any();
