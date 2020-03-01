@@ -25,7 +25,7 @@ namespace ScrapeWeb.Test
                 RowTemplate = "row"
             };
 
-            configuration.EmailConfiguration = new EmailConfiguration(template)
+            configuration.EmailConfiguration = new EmailConfiguration()
             {
                 ApiKey = "key",
                 Login = "login",
@@ -34,7 +34,7 @@ namespace ScrapeWeb.Test
                 UseSendGrid = true
             };
 
-            configuration.EmailMessage = new EmailMessage()
+            configuration.EmailMessage = new EmailMessage(template)
             {
                 From = "from",
                 Recipients = new string[] { "rec1", "rec2" },

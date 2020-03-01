@@ -16,9 +16,9 @@ namespace ScrapeWeb.App
             var data = JsonConvert.DeserializeObject<List<Target>>(File.ReadAllText(@"Data/data.json"));
             var config = JsonConvert.DeserializeObject<SystemConfiguration>(File.ReadAllText(@"Data/config.json"));
 
-            config.EmailConfiguration.Template.BodyTemplate = File.ReadAllText(@"Data/Templates/Default/email.template.html");
-            config.EmailConfiguration.Template.ItemTemplate = File.ReadAllText(@"Data/Templates/Default/item.template.html");
-            config.EmailConfiguration.Template.RowTemplate = File.ReadAllText(@"Data/Templates/Default/item.row.template.html");
+            config.EmailMessage.Template.BodyTemplate = File.ReadAllText(@"Data/Templates/Default/email.template.html");
+            config.EmailMessage.Template.ItemTemplate = File.ReadAllText(@"Data/Templates/Default/item.template.html");
+            config.EmailMessage.Template.RowTemplate = File.ReadAllText(@"Data/Templates/Default/item.row.template.html");
 
 
             if (!Directory.Exists(@"Data/Output"))
@@ -70,7 +70,7 @@ namespace ScrapeWeb.App
                 //adding the CSV to the email
                 if (configuration.GenerateCsv)
                 {
-                    configuration.EmailConfiguration.Attachments.Add(
+                    configuration.EmailMessage.Attachments.Add(
                     new EmailAttachment(Convert.ToBase64String(File.ReadAllBytes(Path.Combine(@"Data/Output", DateTime.Now.ToString("yyyyMMdd"), "output.csv"))), "output.csv")
                     );
                 }

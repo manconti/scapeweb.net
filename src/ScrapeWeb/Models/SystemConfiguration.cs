@@ -38,15 +38,6 @@ namespace ScrapeWeb.Models
     {
 
         /// <summary>
-        /// Get or Set the list of attachments to be added to the email.
-        /// </summary>
-        public List<EmailAttachment> Attachments;
-
-        /// <summary>
-        /// Get the template for the current email configuration.
-        /// </summary>
-        public EmailTemplate Template { get; internal set; }
-        /// <summary>
         /// Get or Set the value indicating if the SendGrid API will be used. 
         /// </summary>
         public bool UseSendGrid;
@@ -66,8 +57,37 @@ namespace ScrapeWeb.Models
         /// Get or Set the SMTP server name. This parameter is ignored if <see cref="UseSendGrid"/> is set to True. 
         /// </summary>
         public string SmtpServer;
+    }
 
-        public EmailConfiguration(EmailTemplate template)
+    /// <summary>
+    /// It represents the configuration for the email sent by ScrapeWeb
+    /// </summary>
+    public class EmailMessage
+    {
+        /// <summary>
+        /// Get or Set the list of attachments to be added to the email.
+        /// </summary>
+        public List<EmailAttachment> Attachments;
+
+        /// <summary>
+        /// Get the template for the current email configuration.
+        /// </summary>
+        public EmailTemplate Template { get; internal set; }
+
+        /// <summary>
+        /// Get or Set the sender of the email sent. 
+        /// </summary>
+        public string From;
+        /// <summary>
+        /// Get or Set the subject of the email sent.
+        /// </summary>
+        public string Subject;
+        /// <summary>
+        /// Get or Set the list of Recipients for the email. 
+        /// </summary>
+        public string[] Recipients;
+
+        public EmailMessage(EmailTemplate template)
         {
             this.Template = template;
             this.Attachments = new List<EmailAttachment>();
@@ -80,6 +100,8 @@ namespace ScrapeWeb.Models
 
 
     }
+
+
     /// <summary>
     /// It represents an attachment that will be sent within the email;
     /// </summary>
@@ -101,24 +123,7 @@ namespace ScrapeWeb.Models
         }
     }
 
-    /// <summary>
-    /// It represents the configuration for the email sent by ScrapeWeb
-    /// </summary>
-    public class EmailMessage
-    {
-        /// <summary>
-        /// Get or Set the sender of the email sent. 
-        /// </summary>
-        public string From;
-        /// <summary>
-        /// Get or Set the subject of the email sent.
-        /// </summary>
-        public string Subject;
-        /// <summary>
-        /// Get or Set the list of Recipients for the email. 
-        /// </summary>
-        public string[] Recipients;
-    }
+    
 
     /// <summary>
     /// It represents the HTML segments of the email template that will be sent

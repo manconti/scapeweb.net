@@ -22,7 +22,7 @@ namespace ScrapeWeb.Services
         public async Task SendAsync(IList<Outcome> results)
         {
 
-            _config.EmailConfiguration.Template.BodyTemplate = _config.EmailConfiguration.Template.BodyTemplate
+            _config.EmailMessage.Template.BodyTemplate = _config.EmailMessage.Template.BodyTemplate
                 .Replace(Constants.EmailSubjectMarkup, _config.EmailMessage.Subject)
                 .Replace(Constants.EmailDateMarkup, System.DateTime.Now.ToString(Constants.EmailDateFormatting));
 
@@ -36,9 +36,9 @@ namespace ScrapeWeb.Services
 
                 List<SendGrid.Helpers.Mail.Attachment> attachments = new List<SendGrid.Helpers.Mail.Attachment>();
                 //attachments
-                if (_config.EmailConfiguration.Attachments.Any())
+                if (_config.EmailMessage.Attachments.Any())
                 {
-                    foreach (var attachment in _config.EmailConfiguration.Attachments)
+                    foreach (var attachment in _config.EmailMessage.Attachments)
                     {
                         attachments.Add(new SendGrid.Helpers.Mail.Attachment() { Filename = attachment.Name, Content = attachment.Base64String });
                     }
@@ -48,7 +48,7 @@ namespace ScrapeWeb.Services
                 {
                     var to = new EmailAddress(recipient);
                     var msg = MailHelper.CreateSingleEmail(from, to, subject, string.Empty, BuildBody(results));
-                    if (_config.EmailConfiguration.Attachments.Any())
+                    if (_config.EmailMessage.Attachments.Any())
                     {
                         msg.Attachments = attachments;
                     }
@@ -73,7 +73,7 @@ namespace ScrapeWeb.Services
             {
                 if (gr.HighlightedOutputElements.Any())
                 {
-                    string sitem = _config.EmailConfiguration.Template.ItemTemplate
+                    string sitem = _config.EmailMessage.Template.ItemTemplate
                         .Replace(Constants.EmailSourceMarkup, gr.Title)
                         .Replace(Constants.EmailTotalMarkup, gr.HighlightedOutputElements.Count.ToString())
                         .Replace(Constants.EmailHrefMarkup, gr.Url);
@@ -85,7 +85,7 @@ namespace ScrapeWeb.Services
 
                         foreach (var f in gr.HighlightedOutputElements)
                         {
-                            rows += _config.EmailConfiguration.Template.RowTemplate.Replace(Constants.EmailFindingMarkup, f);
+                            rows += _config.EmailMessage.Template.RowTemplate.Replace(Constants.EmailFindingMarkup, f);
                         }
                     }
 
@@ -97,7 +97,7 @@ namespace ScrapeWeb.Services
 
             }
 
-            return _config.EmailConfiguration.Template.BodyTemplate.Replace(Constants.EmailItemTemplateMarkup, sitems);
+            return _config.EmailMessage.Template.BodyTemplate.Replace(Constants.EmailItemTemplateMarkup, sitems);
         }
 
 
