@@ -8,6 +8,8 @@ using System.IO;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
+using System.Net.Http;
+
 namespace ScrapeWeb.Services
 {
     public sealed class EmailService
@@ -27,12 +29,18 @@ namespace ScrapeWeb.Services
                 .Replace(Constants.EmailDateMarkup, System.DateTime.Now.ToString(Constants.EmailDateFormatting));
 
 
+            var from = _config.EmailMessage.From;
+            var subject = $"{_config.EmailMessage.Subject} - {System.DateTime.Now.ToString(Constants.EmailDateFormatting)}";
+            var body = BuildBody(results);
+
+            
+
+
             if (_config.EmailConfiguration.UseSendGrid)
             {
                 var apiKey = _config.EmailConfiguration.ApiKey;
                 var client = new SendGridClient(apiKey);
-                var from = new EmailAddress(_config.EmailMessage.From, _config.EmailMessage.From);
-                var subject = $"{_config.EmailMessage.Subject} - {System.DateTime.Now.ToString(Constants.EmailDateFormatting)}";
+
 
                 List<SendGrid.Helpers.Mail.Attachment> attachments = new List<SendGrid.Helpers.Mail.Attachment>();
                 //attachments
@@ -47,7 +55,7 @@ namespace ScrapeWeb.Services
                 foreach (var recipient in _config.EmailMessage.Recipients)
                 {
                     var to = new EmailAddress(recipient);
-                    var msg = MailHelper.CreateSingleEmail(from, to, subject, string.Empty, BuildBody(results));
+                    var msg = MailHelper.CreateSingleEmail(new EmailAddress(from, from), to, subject, string.Empty, body);
                     if (_config.EmailMessage.Attachments.Any())
                     {
                         msg.Attachments = attachments;
@@ -61,7 +69,25 @@ namespace ScrapeWeb.Services
             }
             else
             {
-                //TODO SMTP configuration
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient(_config.EmailConfiguration.SmtpServer);
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(_config.EmailConfiguration.Login, _config.EmailConfiguration.Password );
+                SmtpServer.EnableSsl = _config.EmailConfiguration.SmtpSsl;
+
+                foreach (var recipient in _config.EmailMessage.Recipients)
+                {
+                    mail.From = new MailAddress(from);
+                    mail.To.Add(recipient);
+                    mail.Subject = subject;
+                    mail.Body = body;
+                    foreach (var attachment in _config.EmailMessage.Attachments)
+                    {
+                        mail.Attachments.Add(new System.Net.Mail.Attachment(new MemoryStream(Convert.FromBase64String(attachment.Base64String)), attachment.Name));
+                    }
+
+                    SmtpServer.Send(mail);
+                }   
             }
         }
 

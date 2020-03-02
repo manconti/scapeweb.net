@@ -8,6 +8,8 @@
     "Login": "yourusername@azure.com",
     "Password": "*****",
     "SmtpServer": "",
+    "SmtpPort": 25,
+    "SmtpSsl" :  true,
     "Template": {
       "BodyTemplate": "Replace with HTML body",
       "ItemTemplate": "Replace with ITEM body",

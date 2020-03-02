@@ -42,7 +42,7 @@ namespace ScrapeWeb.Models
         /// </summary>
         public bool UseSendGrid;
         /// <summary>
-        /// Get or Set the value for the SendGrid Api Key. This parameter is ignored if <see cref="UseSendGrid"/> is set to False. 
+        /// Get or Set the value for the SendGrid Api Key. This parameter is ignored if <see cref="UseSendGrid"/> is set to False. Default is True.
         /// </summary>
         public string ApiKey;
         /// <summary>
@@ -57,6 +57,20 @@ namespace ScrapeWeb.Models
         /// Get or Set the SMTP server name. This parameter is ignored if <see cref="UseSendGrid"/> is set to True. 
         /// </summary>
         public string SmtpServer;
+        /// <summary>
+        /// Get or Set the SMTP port. 
+        /// </summary>
+        public int SmtpPort;
+        /// <summary>
+        /// Get or Set the SSL configuration for SMTP. Default is True; 
+        /// </summary>
+        public bool SmtpSsl;
+
+        public EmailConfiguration()
+        {
+            SmtpSsl = true;
+            UseSendGrid = true;
+        }
     }
 
     /// <summary>
@@ -123,7 +137,7 @@ namespace ScrapeWeb.Models
         }
     }
 
-    
+
 
     /// <summary>
     /// It represents the HTML segments of the email template that will be sent
